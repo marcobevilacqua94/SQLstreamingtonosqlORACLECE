@@ -1,31 +1,31 @@
 select * FROM
-store.customers as a JOIN 
-store.orders as b
+store.customers a JOIN
+store.orders b
 on a.customerId=b.customerId
 WHERE
 email='jjj@y.com'
 
 select * from 
-store.orders as a JOIN
-store.order_items as b
+store.orders a JOIN
+store.order_items b
 on a.orderId=b.orderId JOIN 
-store.products as c
+store.products c
 on b.productId=c.productId
 where a.orderId=1
 
 
 select * FROM
-customers as a JOIN 
-orders as b
+customers a JOIN
+orders b
 on a.customerId=b.customerId
 WHERE
 a.email='jjj@y.com'
 
 
 select * from 
-orders as a JOIN
-order_items as b
+orders a JOIN
+order_items b
 on a.orderId=b.orderId JOIN 
-products as c
+products c
 on b.productId=c.productId
 where a.orderId=1

@@ -194,16 +194,11 @@ services:
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
   
-  sqlserver:
-    hostname: sqlserver
-    image: belio1/sqlserverdemo:1.0.0
+  oracle-xe:
+    hostname: oracle-xe
+    image: marcobevilacqua94/oracle-xe
     ports:
-     - 1433:1433
-    environment:
-     - ACCEPT_EULA=Y
-     - MSSQL_PID=Standard
-     - SA_PASSWORD=Password!
-     - MSSQL_AGENT_ENABLED=true
+     - 1521:1521
 
   couchbase:
     hostname: couchbase

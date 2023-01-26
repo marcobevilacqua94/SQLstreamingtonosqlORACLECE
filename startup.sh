@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Wait for database to startup 
+# Wait for database to startup
+export ORACLE_SID=XE
 for i in {1..50};
 do
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Password! -i DBSampleObjects.sql
+    sqlplus SYS/oracle as sysdba @DBSampleObjects
     if [ $? -eq 0 ]
     then
         echo "DBSampleObjects.sql completed"
@@ -14,7 +15,7 @@ do
 done
 for j in {1..50};
 do
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Password! -i loaddata.sql
+    sqlplus SYS/oracle as sysdba @loaddata.sql
     if [ $? -eq 0 ]
     then
         echo "loaddata.sql completed"

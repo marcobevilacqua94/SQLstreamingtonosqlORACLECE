@@ -1,24 +1,17 @@
-Use test;
-SET IDENTITY_INSERT store.customers OFF;
-SET IDENTITY_INSERT store.orders OFF;
 
 -- store.products table
-SET IDENTITY_INSERT store.products ON;
 INSERT INTO store.products(productId, productName, description,  price) VALUES(1,'Banana', 'Good fruit',1.99);
 INSERT INTO store.products(productId, productName, description, price) VALUES(2,'Apple', 'Tasty',2.99);
-INSERT INTO store.products(productId, productName, description, price) VALUES(3,'Passion Fruit','Very sweet',2.22)
-INSERT INTO store.products(productId, productName, description, price) VALUES(4,'Orange','Good',2.22)
-INSERT INTO store.products(productId, productName, description, price) VALUES(5,'Watermelon','Great',0.99)
-INSERT INTO store.products(productId, productName, description, price) VALUES(6,'Mango','Super sweet',9.99)
-INSERT INTO store.products(productId, productName, description, price) VALUES(7,'Peach','Awesome',2.22)
-INSERT INTO store.products(productId, productName, description,  price) VALUES(8,'Pear','Just top',1.22)
-INSERT INTO store.products(productId, productName, description, price) VALUES(9,'Kiwi','Great from New Zealand',1.99)
-INSERT INTO store.products(productId, productName, description, price) VALUES(10,'Grapes','Super tasty',1.99)
-
-SET IDENTITY_INSERT store.products OFF;
+INSERT INTO store.products(productId, productName, description, price) VALUES(3,'Passion Fruit','Very sweet',2.22);
+INSERT INTO store.products(productId, productName, description, price) VALUES(4,'Orange','Good',2.22);
+INSERT INTO store.products(productId, productName, description, price) VALUES(5,'Watermelon','Great',0.99);
+INSERT INTO store.products(productId, productName, description, price) VALUES(6,'Mango','Super sweet',9.99);
+INSERT INTO store.products(productId, productName, description, price) VALUES(7,'Peach','Awesome',2.22);
+INSERT INTO store.products(productId, productName, description,  price) VALUES(8,'Pear','Just top',1.22);
+INSERT INTO store.products(productId, productName, description, price) VALUES(9,'Kiwi','Great from New Zealand',1.99);
+INSERT INTO store.products(productId, productName, description, price) VALUES(10,'Grapes','Super tasty',1.99);
 
 -- store.customers table
-SET IDENTITY_INSERT store.customers ON;
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(1,'John','Smith',NULL,'jjj@y.com','9222 Thawn Ave. NY 14127');
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(2,'Molly','Todd',NULL,'m.todd@y.com','911 Colombo Road San Diego,CA, 95008');
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(3,'Tamara','Finer',NULL,'tamara.fisher@al.com','76 Creek St. Palm Beach, CA, 90278');
@@ -28,10 +21,9 @@ INSERT INTO store.customers(customerId,firstName, lastName, phone, email, addres
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(7,'Anna','Hays','(716) 186-3359','Ann@hmail.com','703 Station Rd. ,Buffalo,NY,14215');
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(8,'Jane','Duncan',NULL,'jane@yahoo.com','15 Brown St. Jackson Heights,NY,11372');
 INSERT INTO store.customers(customerId,firstName, lastName, phone, email, address) VALUES(9,'Genoffa','Baldwin',NULL,'genoveffa@msn.com','8550 Spruce Drive ,Port Washington,NY,11050');
-SET IDENTITY_INSERT store.customers OFF;
--- store orders table
 
-SET IDENTITY_INSERT store.orders ON;  
+
+-- store orders table
 INSERT INTO store.orders(orderId, customerId, orderStatus, orderDate) VALUES(1,1,4,'20210101');
 INSERT INTO store.orders(orderId, customerId, orderStatus, orderDate) VALUES(2,1,4,'20210101');
 INSERT INTO store.orders(orderId, customerId, orderStatus, orderDate) VALUES(3,2,4,'20210102');
