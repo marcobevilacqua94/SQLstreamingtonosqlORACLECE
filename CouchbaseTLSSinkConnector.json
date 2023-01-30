@@ -1,37 +1,18 @@
 {
-
-  "name": "CouchbaseTLSSinkConnectorConnector",
-
+  "name": "CouchbaseSinkConnectorConnector_1",
   "config": {
-
-    "name": "CouchbaseTLSSinkConnectorConnector",
-
     "connector.class": "com.couchbase.connect.kafka.CouchbaseSinkConnector",
-
-    "tasks.max": "1",
-
-    "topics": "target_customers, target_orders, target_order_items, target_products",
-
-    "couchbase.seed.nodes": "cb.1bq29kej1bt2bjfl.cloud.couchbase.com",
-
-    "couchbase.password": "****************",
-
-    "couchbase.username": "application",
-
-    "couchbase.bucket": "raw",
-
+    "tasks.max": "2",
+    "topics": "target_customers, target_products, target_order_items, target_orders",
+    "couchbase.seed.nodes": "cb.ove3w-p64yns4app.cloud.couchbase.com",
+    "couchbase.password": "Pwd12345!",
+    "couchbase.username": "application2",
+    "couchbase.bucket": "bk",
     "couchbase.enable.tls": "true",
-
     "couchbase.enable.hostname.verification": "true",
-
     "couchbase.trust.certificate.path": "/home/appuser/capella.pem",
-
     "couchbase.topic.to.collection": "target_products=store.products, target_customers=store.customers, target_orders=store.orders, target_order_items=store.order_items",
-
     "couchbase.document.id": "${/KEY}",
-
     "couchbase.remove.document.id": "true"
-
   }
-
 }
