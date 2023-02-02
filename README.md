@@ -6,15 +6,14 @@ Run sh cleanup.sh to clean up previous containers
 
 Steps:
 1) To start Confluent Platform, Couchbase server and Oracle XE inside the same network run: docker compose up -d. This will start Oracle XE server with pre populated tables and Couchbase server with all the scopes and collection already created. If you want to connect to Oracle XE instance use this credentials: store/password
-2) install oracle connector on connect image and restart it -> docker exec -ti connect /bin/bash -> confluent-hub install confluentinc/kafka-connect-oracle-cdc:2.3.0 -> exit -> docker restart connect
-3) Create the Oracle Source and Sink Connectors:
+2) Create the Oracle Source and Sink Connectors:
  * curl -X POST -H "Content-Type: application/json" -d @OracleConnector.json http://localhost:8083/connectors  
  * curl -X POST -H "Content-Type: application/json" -d @CouchbaseTLSSinkConnector.json http://localhost:8083/connectors
-4) Access to Control Center on localhost:9021 and verify that the connectors are OK
-5) Create proper KSQLDB streams to transform the data and load them in Couchbase (see file ksqldb). To do this simply run:
+3) Access to Control Center on localhost:9021 and verify that the connectors are OK
+4) Create proper KSQLDB streams to transform the data and load them in Couchbase (see file ksqldb). To do this simply run:
   - source deployksql.sh
   - deploy_ksql ksqldb.sql
-6) Verify that all data have been streamed and inserted in target Couchbase collections :)
+5) Verify that all data have been streamed and inserted in target Couchbase collections :)
 
 ## Stream to Couchbase Capella
 
@@ -35,13 +34,12 @@ Steps:
  * "couchbase.seed.nodes": "*paste url from capella cluster connect*",
  * "couchbase.username": "application"
  * "couchbase.password": "*paste application user password*"
-14) install oracle connector on connect image and restart it -> docker exec -ti connect /bin/bash -> confluent-hub install confluentinc/kafka-connect-oracle-cdc:2.3.0 -> exit -> docker restart connect
-15) Create the Oracle Source and Sink Connectors:
+14) Create the Oracle Source and Sink Connectors:
  * curl -X POST -H "Content-Type: application/json" -d @OracleConnector.json http://localhost:8083/connectors  
  * curl -X POST -H "Content-Type: application/json" -d @CouchbaseTLSSinkConnector.json http://localhost:8083/connectors
-16) Access to Control Center on localhost:9021 and verify that the connectors are OK
-17) Create proper KSQLDB streams to transform the data and load them in Couchbase (see file ksqldb). To do this simply run:
+15) Access to Control Center on localhost:9021 and verify that the connectors are OK
+16) Create proper KSQLDB streams to transform the data and load them in Couchbase (see file ksqldb). To do this simply run:
   - source deployksql.sh
   - deploy_ksql ksqldb.sql
-18) Verify that all data have been streamed and inserted in target Couchbase collections :)
+17) Verify that all data have been streamed and inserted in target Couchbase collections :)
 
