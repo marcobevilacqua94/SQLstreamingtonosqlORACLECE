@@ -1,7 +1,7 @@
 version: '2'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.0.3
+    image: confluentinc/cp-zookeeper:6.1.9
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -11,7 +11,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     restart: always
   broker:
-    image: confluentinc/cp-server:7.0.3
+    image: confluentinc/cp-kafka:7.0.3
     hostname: broker
     container_name: broker
     restart: always
@@ -39,7 +39,7 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
-    
+
   schema-registry:
     image: confluentinc/cp-schema-registry:7.0.3
     hostname: schema-registry
@@ -54,7 +54,7 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
   connect:
-    image: cnfldemos/cp-server-connect-datagen:0.5.0-6.2.0
+    image: cnfldemos/kafka-connect-datagen:0.5.0-6.2.0
     hostname: connect
     container_name: connect
     depends_on:
@@ -83,9 +83,9 @@ services:
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
-    command: 
-      - bash 
-      - -c 
+    command:
+      - bash
+      - -c
       - |
         # Install connector plugins
         # This will by default install into /usr/share/confluent-hub-components/ so make
@@ -193,19 +193,19 @@ services:
       KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:29092'
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
-  
+
   oracle-xe:
     hostname: oracle-xe
     image: marcobevilacqua94/oracle-xe
     ports:
-     - 1521:1521
+      - 1521:1521
 
   couchbase:
     hostname: couchbase
     image: belio1/couchbaseserver:1.0.0
     ports:
-     - 8091-8096:8091-8096
-    environment:  
+      - 8091-8096:8091-8096
+    environment:
       - USER=Administrator
       - PASS=password
       - BUCKET=test
